@@ -1,0 +1,1 @@
+{"version":3,"file":"RSSFeedSource.js","sourceRoot":"","sources":["../src/RSSFeedSource.ts"],"names":[],"mappings":";;;;;;;;;AAAA,mCAAiC;AAI1B,IAAM,aAAa,GAAnB,MAAM,aAAa;IACtB,KAAK,CAAC,aAAa;QACf,OAAO,CAAC,mBAAmB,EAAE,iBAAiB,CAAC,CAAC;IACpD,CAAC;CACJ,CAAA;AAJY,sCAAa;wBAAb,aAAa;IADzB,IAAA,gBAAO,GAAE;GACG,aAAa,CAIzB"}
