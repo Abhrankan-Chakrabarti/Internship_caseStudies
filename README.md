@@ -32,8 +32,8 @@ Here, I’ve implemented and tested solutions for multiple TypeScript lessons, i
 ## 🛠️ How to Run
 Clone the repo and run any lesson file:
 ```bash
-git clone https://github.com/your-username/winternship-case-studies.git
-cd winternship-case-studies
+git clone https://github.com/Abhrankan-Chakrabarti/Internship_caseStudies.git
+cd Internship_caseStudies
 tsc lesson-name.ts
 node lesson-name.js
 ```
