@@ -11,7 +11,8 @@ const LessonHub: React.FC = () => {
         {lessons.map((lesson) => (
           <li key={lesson.path} style={{ marginBottom: "0.5rem" }}>
             <NavLink
-              to={lesson.path}
+              // Ensure Lesson3 points to "/lesson3/" not just "/lesson3"
+              to={lesson.path.endsWith("/*") ? lesson.path.replace("/*", "/") : lesson.path}
               style={({ isActive }) => ({
                 fontWeight: isActive ? "bold" : "normal",
                 color: isActive ? "green" : "blue",
