@@ -1,28 +1,24 @@
 // src/App.tsx
-import React, { useState } from "react";
-import PortfolioSummary from "./components/PortfolioSummary";
-import AssetEditor from "./components/AssetEditor";
-import type { Asset } from "./components/PortfolioSummary";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import { lessons } from "./lessonsRegistry";
 
 const App: React.FC = () => {
-  const [assets, setAssets] = useState<Asset[]>([]);
-
-  const handleUpdate = (asset: Asset) => {
-    setAssets((prev) => {
-      const existing = prev.find((a) => a.symbol === asset.symbol);
-      if (existing) {
-        return prev.map((a) => (a.symbol === asset.symbol ? asset : a));
-      }
-      return [...prev, asset];
-    });
-  };
-
   return (
-    <div>
-      <h1>My Portfolio Dashboard</h1>
-      <AssetEditor onUpdate={handleUpdate} />
-      <PortfolioSummary assets={assets} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {lessons.map((lesson) => (
+            <Route
+              key={lesson.path}
+              path={lesson.path}
+              element={<lesson.component />}
+            />
+          ))}
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 
