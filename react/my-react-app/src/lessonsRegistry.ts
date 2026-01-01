@@ -3,6 +3,7 @@ import Lesson1 from "./lessons/Lesson1";
 import Lesson2 from "./lessons/Lesson2";
 import Lesson3 from "./lessons/Lesson3";
 import Lesson4 from "./lessons/Lesson4";
+import Lesson5 from "./lessons/Lesson5";
 
 export interface Lesson {
   path: string;
@@ -15,4 +16,5 @@ export const lessons: Lesson[] = [
   { path: "/lesson2", title: "Lesson 2: Budget Tracker", component: Lesson2 },
   { path: "/lesson3/*", title: "Lesson 3: Doctor–Patient Details", component: Lesson3 },
   { path: "/lesson4", title: "Lesson 4: Notifications with Zustand", component: Lesson4 },
+  { path: "/lesson5", title: "Lesson 5: Testing & Debugging", component: Lesson5 },
 ];
