@@ -9,7 +9,7 @@ This repo showcases my progress in mastering modern web development concepts thr
 The Winternship 2025 program provides structured case studies across:
 - **TypeScript** → mastering language fundamentals, advanced types, generics, and design patterns  
 - **React (Vite)** → building interactive UIs with hooks, state management, and component-driven architecture  
-- **MongoDB** → designing aggregation pipelines for analytics and data transformation  
+- **MongoDB** → designing aggregation pipelines for analytics and data transformation, plus CRUD operations  
 - **Express** → upcoming lessons on backend routing, middleware, and REST APIs  
 
 Each case study bridges theory and practice with real-world coding exercises.
@@ -31,9 +31,15 @@ Each case study bridges theory and practice with real-world coding exercises.
   - Code-splitting and optimization  
 
 - **mongodb/**  
-  - Aggregation pipelines using `$match`, `$group`, `$project`, `$sort`, `$limit`  
-  - Case study: MovieFlix analytics (views, ratings, genres)  
-  - Scripts runnable via `mongosh` or Node.js driver  
+  - **Case Study 1: MovieFlix Analytics (`solution.js`)**  
+    - Aggregation pipelines using `$match`, `$group`, `$project`, `$sort`, `$limit`  
+    - Example queries: views, ratings, genres  
+    - Runnable via `mongosh` or Node.js driver  
+
+  - **Case Study 2: FastBite CRUD Challenge (`menu-crud.js`)**  
+    - Demonstrates `insertOne`, `find`, `updateOne`, `deleteOne`  
+    - Idempotent script using `upsert` and `$addToSet` for repeatable runs  
+    - Runnable via `mongosh` or Node.js driver  
 
 ---
 
@@ -56,10 +62,19 @@ npm run dev
 This will start the Vite dev server and open the app in your browser.
 
 ### MongoDB
+
+#### Case Study 1: MovieFlix Analytics
 ```bash
 cd Internship_caseStudies/mongodb
 npm install
 node solution.js
+```
+
+#### Case Study 2: FastBite CRUD Challenge
+```bash
+cd Internship_caseStudies/mongodb
+npm install
+node menu-crud.js
 ```
 
 ---
@@ -67,7 +82,8 @@ node solution.js
 ## 📈 Progress Tracker
 - [x] **TypeScript**: Functions, Advanced Types, Generics, Design Patterns (Observer + Strategy), Classes & Access Modifiers  
 - [x] **React (Vite)**: Component-driven solutions, hooks, state management  
-- [x] **MongoDB**: Aggregation pipeline case study (MovieFlix analytics)  
+- [x] **MongoDB Case Study 1**: Aggregation pipeline (MovieFlix analytics)  
+- [x] **MongoDB Case Study 2**: CRUD challenge (FastBite menu, idempotent script)  
 - [ ] **Express**: Backend routing & middleware (upcoming)  
 
 ---
@@ -76,6 +92,7 @@ node solution.js
 - Strong focus on **clarity and modularity**.  
 - Each solution includes **conceptual explanation + runnable code**.  
 - Demonstrates growth across **frontend, backend, and database layers** of the MERN stack.  
+- MongoDB scripts are **idempotent**, ensuring repeatable outputs across multiple runs.  
 
 ---
 
