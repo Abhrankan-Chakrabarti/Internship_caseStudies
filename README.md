@@ -54,6 +54,11 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Routes: `/` (homepage), `/events` (list of activities), `/contact` (JSON with email + phone)  
     - Demonstrates `res.send()` vs `res.json()` responses  
     - Runnable via `node app.js`  
+  - **Lesson 2: Modular routes (`app.js`, `routes/`)**  
+    - Split routes into `routes/events.js`, `routes/classes.js`, `routes/contact.js`  
+    - Mounted routers in `app.js` with `app.use('/path', router)`  
+    - Organized project for scalability and team collaboration  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -112,6 +117,17 @@ Then visit:
 - [http://localhost:3000/events](http://localhost:3000/events) → JSON list of events  
 - [http://localhost:3000/contact](http://localhost:3000/contact) → JSON with email + phone  
 
+#### Lesson 2: Modular routes
+```bash
+cd Internship_caseStudies/express/lesson2
+npm install
+node app.js
+```
+Then visit:
+- [http://localhost:3000/events](http://localhost:3000/events) → JSON list of events  
+- [http://localhost:3000/classes](http://localhost:3000/classes) → JSON list of classes  
+- [http://localhost:3000/contact](http://localhost:3000/contact) → JSON with email + phone  
+
 ---
 
 ## 📈 Progress Tracker
@@ -121,7 +137,8 @@ Then visit:
 - [x] **MongoDB Case Study 2**: CRUD challenge (FastBite menu, idempotent script)  
 - [x] **MongoDB Case Study 3**: Transactions & Refunds (FinTrust wallet, ACID compliance)  
 - [x] **Express Lesson 1**: Basic routes and server setup  
-- [ ] **Express Lesson 2+**: Middleware, REST APIs, error handling (upcoming)  
+- [x] **Express Lesson 2**: Modular routes with mounted routers  
+- [ ] **Express Lesson 3+**: Middleware, REST APIs, error handling (upcoming)  
 
 ---
 
@@ -130,7 +147,7 @@ Then visit:
 - Each solution includes **conceptual explanation + runnable code**.  
 - Demonstrates growth across **frontend, backend, and database layers** of the MERN stack.  
 - MongoDB scripts are **idempotent** and **transaction-safe**, ensuring repeatable outputs and ACID compliance.  
-- Express lessons show **step-by-step backend development**, starting from simple routes to full REST APIs.  
+- Express lessons show **step-by-step backend development**, starting from simple routes to modular structure and toward full REST APIs.  
 
 ---
 
