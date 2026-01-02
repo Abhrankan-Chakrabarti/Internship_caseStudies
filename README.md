@@ -59,6 +59,12 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Mounted routers in `app.js` with `app.use('/path', router)`  
     - Organized project for scalability and team collaboration  
     - Runnable via `node app.js`  
+  - **Lesson 3: PATCH endpoint + validation (`app.js`, `routes/products.js`)**  
+    - Implements `PATCH /products/:id/inStock` to update only the `inStock` field  
+    - Validates input: returns `400 Bad Request` if `inStock` is missing or not a boolean  
+    - Returns `404 Not Found` if product ID does not exist  
+    - Demonstrates partial updates, clear status codes, and modular routing  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -128,6 +134,28 @@ Then visit:
 - [http://localhost:3000/classes](http://localhost:3000/classes) → JSON list of classes  
 - [http://localhost:3000/contact](http://localhost:3000/contact) → JSON with email + phone  
 
+#### Lesson 3: PATCH endpoint + validation
+```bash
+cd Internship_caseStudies/express/lesson3
+npm install
+node app.js
+```
+Then test:
+```bash
+# Valid update
+curl -X PATCH http://localhost:3000/products/1/inStock \
+  -H "Content-Type: application/json" \
+  -d '{"inStock": false}'
+
+# Invalid update (missing or wrong type)
+curl -X PATCH http://localhost:3000/products/1/inStock \
+  -H "Content-Type: application/json" \
+  -d '{}'
+curl -X PATCH http://localhost:3000/products/1/inStock \
+  -H "Content-Type: application/json" \
+  -d '{"inStock": "yes"}'
+```
+
 ---
 
 ## 📈 Progress Tracker
@@ -138,7 +166,8 @@ Then visit:
 - [x] **MongoDB Case Study 3**: Transactions & Refunds (FinTrust wallet, ACID compliance)  
 - [x] **Express Lesson 1**: Basic routes and server setup  
 - [x] **Express Lesson 2**: Modular routes with mounted routers  
-- [ ] **Express Lesson 3+**: Middleware, REST APIs, error handling (upcoming)  
+- [x] **Express Lesson 3**: PATCH endpoint with boolean validation  
+- [ ] **Express Lesson 4+**: Middleware, REST APIs, error handling (upcoming)  
 
 ---
 
@@ -147,7 +176,7 @@ Then visit:
 - Each solution includes **conceptual explanation + runnable code**.  
 - Demonstrates growth across **frontend, backend, and database layers** of the MERN stack.  
 - MongoDB scripts are **idempotent** and **transaction-safe**, ensuring repeatable outputs and ACID compliance.  
-- Express lessons show **step-by-step backend development**, starting from simple routes to modular structure and toward full REST APIs.  
+- Express lessons show **step-by-step backend development**, from simple routes to modular structure and precise REST endpoints with validation.
 
 ---
 
