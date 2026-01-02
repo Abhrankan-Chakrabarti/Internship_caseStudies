@@ -1,7 +1,7 @@
 # Winternship 2025 Case Studies – Solutions
 
 Welcome to my repository of solved lessons from the **Winternship 2025 Case Studies**.  
-This repo showcases my progress in mastering modern web development concepts through practical, hands-on challenges across **TypeScript**, **React (Vite)**, and **MongoDB** (with Express coming next).
+This repo showcases my progress in mastering modern web development concepts through practical, hands-on challenges across **TypeScript**, **React (Vite)**, **MongoDB**, and now **Express**.
 
 ---
 
@@ -10,7 +10,7 @@ The Winternship 2025 program provides structured case studies across:
 - **TypeScript** → mastering language fundamentals, advanced types, generics, and design patterns  
 - **React (Vite)** → building interactive UIs with hooks, state management, and component-driven architecture  
 - **MongoDB** → designing aggregation pipelines for analytics and data transformation, CRUD operations, and ACID-compliant transactions  
-- **Express** → upcoming lessons on backend routing, middleware, and REST APIs  
+- **Express** → backend routing, middleware, and REST APIs  
 
 Each case study bridges theory and practice with real-world coding exercises.
 
@@ -47,6 +47,13 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Refund workflow: balance adjustments, transaction status updates, and audit trail logging  
     - Prints balances before and after refund for verification  
     - Demonstrates rollback prevention and double-refund safeguards  
+
+- **express/**  
+  - **Lesson 1: Getting Started (`app.js`)**  
+    - Basic Express server setup with `npm init` and `npm install express`  
+    - Routes: `/` (homepage), `/events` (list of activities), `/contact` (JSON with email + phone)  
+    - Demonstrates `res.send()` vs `res.json()` responses  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -92,6 +99,19 @@ node seed-refund.js   # seed sample users + transaction
 node refund-transaction.js   # run refund workflow
 ```
 
+### Express
+
+#### Lesson 1: Getting Started
+```bash
+cd Internship_caseStudies/express/lesson1
+npm install
+node app.js
+```
+Then visit:
+- [http://localhost:3000/](http://localhost:3000/) → homepage  
+- [http://localhost:3000/events](http://localhost:3000/events) → JSON list of events  
+- [http://localhost:3000/contact](http://localhost:3000/contact) → JSON with email + phone  
+
 ---
 
 ## 📈 Progress Tracker
@@ -100,7 +120,8 @@ node refund-transaction.js   # run refund workflow
 - [x] **MongoDB Case Study 1**: Aggregation pipeline (MovieFlix analytics)  
 - [x] **MongoDB Case Study 2**: CRUD challenge (FastBite menu, idempotent script)  
 - [x] **MongoDB Case Study 3**: Transactions & Refunds (FinTrust wallet, ACID compliance)  
-- [ ] **Express**: Backend routing & middleware (upcoming)  
+- [x] **Express Lesson 1**: Basic routes and server setup  
+- [ ] **Express Lesson 2+**: Middleware, REST APIs, error handling (upcoming)  
 
 ---
 
@@ -109,6 +130,7 @@ node refund-transaction.js   # run refund workflow
 - Each solution includes **conceptual explanation + runnable code**.  
 - Demonstrates growth across **frontend, backend, and database layers** of the MERN stack.  
 - MongoDB scripts are **idempotent** and **transaction-safe**, ensuring repeatable outputs and ACID compliance.  
+- Express lessons show **step-by-step backend development**, starting from simple routes to full REST APIs.  
 
 ---
 
