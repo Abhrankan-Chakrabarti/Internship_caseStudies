@@ -9,7 +9,7 @@ This repo showcases my progress in mastering modern web development concepts thr
 The Winternship 2025 program provides structured case studies across:
 - **TypeScript** → mastering language fundamentals, advanced types, generics, and design patterns  
 - **React (Vite)** → building interactive UIs with hooks, state management, and component-driven architecture  
-- **MongoDB** → designing aggregation pipelines for analytics and data transformation, plus CRUD operations  
+- **MongoDB** → designing aggregation pipelines for analytics and data transformation, CRUD operations, and ACID-compliant transactions  
 - **Express** → upcoming lessons on backend routing, middleware, and REST APIs  
 
 Each case study bridges theory and practice with real-world coding exercises.
@@ -40,6 +40,13 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Demonstrates `insertOne`, `find`, `updateOne`, `deleteOne`  
     - Idempotent script using `upsert` and `$addToSet` for repeatable runs  
     - Runnable via `mongosh` or Node.js driver  
+
+  - **Case Study 3: FinTrust Transactions & Refunds (`refund-transaction.js`, `seed-refund.js`)**  
+    - Implements **multi-document ACID transactions** in MongoDB  
+    - Secure money transfers with replica set enabled  
+    - Refund workflow: balance adjustments, transaction status updates, and audit trail logging  
+    - Prints balances before and after refund for verification  
+    - Demonstrates rollback prevention and double-refund safeguards  
 
 ---
 
@@ -77,6 +84,14 @@ npm install
 node menu-crud.js
 ```
 
+#### Case Study 3: FinTrust Transactions & Refunds
+```bash
+cd Internship_caseStudies/mongodb
+npm install
+node seed-refund.js   # seed sample users + transaction
+node refund-transaction.js   # run refund workflow
+```
+
 ---
 
 ## 📈 Progress Tracker
@@ -84,6 +99,7 @@ node menu-crud.js
 - [x] **React (Vite)**: Component-driven solutions, hooks, state management  
 - [x] **MongoDB Case Study 1**: Aggregation pipeline (MovieFlix analytics)  
 - [x] **MongoDB Case Study 2**: CRUD challenge (FastBite menu, idempotent script)  
+- [x] **MongoDB Case Study 3**: Transactions & Refunds (FinTrust wallet, ACID compliance)  
 - [ ] **Express**: Backend routing & middleware (upcoming)  
 
 ---
@@ -92,7 +108,7 @@ node menu-crud.js
 - Strong focus on **clarity and modularity**.  
 - Each solution includes **conceptual explanation + runnable code**.  
 - Demonstrates growth across **frontend, backend, and database layers** of the MERN stack.  
-- MongoDB scripts are **idempotent**, ensuring repeatable outputs across multiple runs.  
+- MongoDB scripts are **idempotent** and **transaction-safe**, ensuring repeatable outputs and ACID compliance.  
 
 ---
 
