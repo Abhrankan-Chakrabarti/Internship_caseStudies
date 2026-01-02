@@ -65,6 +65,14 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Returns `404 Not Found` if product ID does not exist  
     - Demonstrates partial updates, clear status codes, and modular routing  
     - Runnable via `node app.js`  
+  - **Lesson 4: POST /transfer endpoint (`app.js`, `routes/transfer.js`)**  
+    - Implements `POST /transfer` to move points between accounts  
+    - Uses fixed valid UUIDs for Alice and Bob to simplify testing  
+    - Validates: both IDs must be valid UUIDs, points must be a positive integer  
+    - Returns `404 Not Found` if sender/receiver not found, `400 Bad Request` if invalid UUIDs or insufficient points  
+    - Responds with `200 OK` and updated balances on success  
+    - Demonstrates transaction-like workflow, input validation, and structured error handling  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -156,6 +164,30 @@ curl -X PATCH http://localhost:3000/products/1/inStock \
   -d '{"inStock": "yes"}'
 ```
 
+#### Lesson 4: POST /transfer endpoint
+```bash
+cd Internship_caseStudies/express/lesson4
+npm install
+node app.js
+```
+Then test:
+```bash
+# Valid transfer
+curl -X POST http://localhost:3000/transfer \
+  -H "Content-Type: application/json" \
+  -d '{"fromCustomerId":"11111111-1111-4111-8111-111111111111","toCustomerId":"22222222-2222-4222-8222-222222222222","points":100}'
+
+# Invalid UUIDs
+curl -X POST http://localhost:3000/transfer \
+  -H "Content-Type: application/json" \
+  -d '{"fromCustomerId":"123","toCustomerId":"456","points":50}'
+
+# Insufficient points
+curl -X POST http://localhost:3000/transfer \
+  -H "Content-Type: application/json" \
+  -d '{"fromCustomerId":"22222222-2222-4222-8222-222222222222","toCustomerId":"11111111-1111-4111-8111-111111111111","points":9999}'
+```
+
 ---
 
 ## 📈 Progress Tracker
@@ -167,7 +199,8 @@ curl -X PATCH http://localhost:3000/products/1/inStock \
 - [x] **Express Lesson 1**: Basic routes and server setup  
 - [x] **Express Lesson 2**: Modular routes with mounted routers  
 - [x] **Express Lesson 3**: PATCH endpoint with boolean validation  
-- [ ] **Express Lesson 4+**: Middleware, REST APIs, error handling (upcoming)  
+- [x] **Express Lesson 4**: POST /transfer endpoint with UUID validation and error handling  
+- [ ] **Express Lesson 5+**: Middleware, global error handling, authentication (upcoming)  
 
 ---
 
