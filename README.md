@@ -1,63 +1,83 @@
-# Winternship 2025 Case Studies – TypeScript Solutions
+# Winternship 2025 Case Studies – Solutions
 
 Welcome to my repository of solved lessons from the **Winternship 2025 Case Studies**.  
-This repo showcases my progress in mastering modern web development concepts, especially **TypeScript**, through practical, hands-on challenges.
+This repo showcases my progress in mastering modern web development concepts through practical, hands-on challenges across **TypeScript**, **React (Vite)**, and **MongoDB** (with Express coming next).
 
 ---
 
 ## 📘 Overview
 The Winternship 2025 program provides structured case studies across:
-- TypeScript
-- React
-- MongoDB
-- Express
+- **TypeScript** → mastering language fundamentals, advanced types, generics, and design patterns  
+- **React (Vite)** → building interactive UIs with hooks, state management, and component-driven architecture  
+- **MongoDB** → designing aggregation pipelines for analytics and data transformation  
+- **Express** → upcoming lessons on backend routing, middleware, and REST APIs  
 
-Each lesson bridges theory and practice with real-world coding exercises.  
-Here, I’ve implemented and tested solutions for multiple TypeScript lessons, including:
-- Functions (optional, default, rest parameters, callbacks, recursion, overloads)
-- Advanced Types (union, utility, mapped types)
-- Generics (generic classes and functions)
-- Design Patterns (Observer, Strategy)
-- Classes & Access Modifiers (inheritance, private/protected members)
+Each case study bridges theory and practice with real-world coding exercises.
 
 ---
 
 ## 🚀 What’s Inside
-- **Lesson files**: Each `.ts` file corresponds to a solved challenge.
-- **Runnable demos**: Code is self-contained and can be executed with `ts-node` or compiled with `tsc`.
-- **Examples included**: Console outputs demonstrate expected behavior.
+- **CaseStudy1 (TypeScript)**  
+  - Functions (optional, default, rest parameters, callbacks, recursion, overloads)  
+  - Advanced Types (union, utility, mapped types)  
+  - Generics (generic classes and functions)  
+  - Design Patterns (Observer, Strategy)  
+  - Classes & Access Modifiers (inheritance, private/protected members)  
+
+- **react/**  
+  - Vite-based React app (`my-react-app`)  
+  - Component-driven solutions with hooks  
+  - State management patterns  
+  - Code-splitting and optimization  
+
+- **mongodb/**  
+  - Aggregation pipelines using `$match`, `$group`, `$project`, `$sort`, `$limit`  
+  - Case study: MovieFlix analytics (views, ratings, genres)  
+  - Scripts runnable via `mongosh` or Node.js driver  
 
 ---
 
 ## 🛠️ How to Run
-Clone the repo and run any lesson file:
+Clone the repo and run any case study:
+
+### TypeScript
 ```bash
-git clone https://github.com/Abhrankan-Chakrabarti/Internship_caseStudies.git
 cd Internship_caseStudies/CaseStudy1
 tsc lesson-name.ts
 node lesson-name.js
 ```
 
+### React (Vite)
+```bash
+cd Internship_caseStudies/react/my-react-app
+npm install
+npm run dev
+```
+This will start the Vite dev server and open the app in your browser.
+
+### MongoDB
+```bash
+cd Internship_caseStudies/mongodb
+npm install
+node solution.js
+```
+
 ---
 
 ## 📈 Progress Tracker
-- [x] Functions (optional/default/rest/callbacks/recursion/overloads)  
-- [x] Advanced Types (union, readonly, mapped)  
-- [x] Generics (class + function)  
-- [x] Design Patterns (Observer)  
-- [ ] Design Patterns (Strategy)  
-- [ ] Classes & Access Modifiers (Assignment subclass)  
-- [ ] React, MongoDB, Express modules  
+- [x] **TypeScript**: Functions, Advanced Types, Generics, Design Patterns (Observer + Strategy), Classes & Access Modifiers  
+- [x] **React (Vite)**: Component-driven solutions, hooks, state management  
+- [x] **MongoDB**: Aggregation pipeline case study (MovieFlix analytics)  
+- [ ] **Express**: Backend routing & middleware (upcoming)  
 
 ---
 
 ## ✨ Highlights
-- Strong focus on **clarity and modularity**.
-- Each solution includes **conceptual explanation + runnable code**.
-- Demonstrates growth in **TypeScript best practices** and **object-oriented design**.
+- Strong focus on **clarity and modularity**.  
+- Each solution includes **conceptual explanation + runnable code**.  
+- Demonstrates growth across **frontend, backend, and database layers** of the MERN stack.  
 
 ---
 
 ## 📜 License
 This project is open-source under the MIT License.
-
