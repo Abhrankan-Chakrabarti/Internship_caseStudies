@@ -104,6 +104,13 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Repository updates book status (`isBorrowed` flag) when returned  
     - Demonstrates repository pattern and dependency injection for modular, testable code  
     - Runnable via `node app.js`  
+  - **Lesson 9: Course deletion workflow (`app.js`, `models/Course.js`, `repositories/`, `services/CourseService.js`, `controllers/CourseController.js`)**  
+    - Implements `delete(courseId)` method in repository to remove courses from storage  
+    - CourseService adds `deleteCourse` method to enforce rules (course must exist before deletion)  
+    - CourseController exposes `DELETE /courses/:id` endpoint for admins  
+    - Returns `200 OK` with success message or `404 Not Found` if course does not exist  
+    - Demonstrates repository pattern, service layer enforcement, and controller routing for admin actions  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -311,6 +318,26 @@ curl -X POST http://localhost:3000/books/2/return
 - ✅ Return → JSON with `isBorrowed: false`  
 - ❌ Error if book not found or invalid state  
 
+#### Lesson 9: Course deletion workflow
+```bash
+cd Internship_caseStudies/express/lesson9
+npm install
+node app.js
+```
+
+Then test:
+
+```bash
+# Delete an existing course
+curl -X DELETE http://localhost:3000/courses/101
+
+# Try deleting a non-existent course
+curl -X DELETE http://localhost:3000/courses/999
+```
+
+- ✅ Returns `200 OK` with `"Course deleted successfully"` if found  
+- ❌ Returns `404 Not Found` with `"Course not found"` if missing  
+
 ---
 
 ## 📈 Progress Tracker
@@ -327,7 +354,8 @@ curl -X POST http://localhost:3000/books/2/return
 - [x] **Express Lesson 6**: Discharge workflow with insurance middleware  
 - [x] **Express Lesson 7**: Admissions validation for art applicants  
 - [x] **Express Lesson 8**: ReturnBook workflow with MVC pattern  
-- [ ] **Express Lesson 9+**: Global error handling, authentication, and advanced middleware (upcoming)  
+- [x] **Express Lesson 9**: Course deletion workflow  
+- [ ] **Express Lesson 10+**: Global error handling, authentication, and advanced middleware (upcoming)  
 
 ---
 
