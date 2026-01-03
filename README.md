@@ -81,6 +81,12 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Responds with `201 Created` on start and `200 OK` on status retrieval  
     - Demonstrates modular routing, workflow separation, and clear status codes  
     - Runnable via `node app.js`  
+  - **Lesson 6: Discharge workflow with insurance middleware (`app.js`, `routes/discharge.js`)**  
+    - Implements middleware chain for discharge: request log, doctor sign-off, pharmacy review, follow-up scheduling  
+    - Adds `insuranceApprovalCheck` middleware to enforce `req.body.insuranceApproved`  
+    - Returns `403 Forbidden` when insurance approval is missing  
+    - Centralized error handler logs discharge steps for troubleshooting  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -213,6 +219,25 @@ curl -X POST http://localhost:3000/baking/start \
 curl -X GET http://localhost:3000/baking/status/101
 ```
 
+#### Lesson 6: Discharge workflow with insurance middleware
+```bash
+cd Internship_caseStudies/express/lesson6
+npm install
+node app.js
+```
+Then test:
+```bash
+# Valid discharge request
+curl -X POST http://localhost:3000/discharge \
+  -H "Content-Type: application/json" \
+  -d '{"patientName":"John Doe","doctorSigned":true,"pharmacyChecked":true,"followupScheduled":true,"insuranceApproved":true}'
+
+# Missing insurance approval (should return 403)
+curl -X POST http://localhost:3000/discharge \
+  -H "Content-Type: application/json" \
+  -d '{"patientName":"Jane Doe","doctorSigned":true,"pharmacyChecked":true,"followupScheduled":true}'
+```
+
 ---
 
 ## 📈 Progress Tracker
@@ -225,8 +250,9 @@ curl -X GET http://localhost:3000/baking/status/101
 - [x] **Express Lesson 2**: Modular routes with mounted routers  
 - [x] **Express Lesson 3**: PATCH endpoint with boolean validation  
 - [x] **Express Lesson 4**: POST /transfer endpoint with UUID validation and error handling  
-- [x] **Express Lesson 5**: BakingController
-- [ ] **Express Lesson 6+**: Middleware, global error handling, authentication (upcoming)  
+- [x] **Express Lesson 5**: BakingController  
+- [x] **Express Lesson 6**: Discharge workflow with insurance middleware  
+- [ ] **Express Lesson 7+**: Global error handling, authentication, and advanced middleware (upcoming)  
 
 ---
 
@@ -235,7 +261,7 @@ curl -X GET http://localhost:3000/baking/status/101
 - Each solution includes **conceptual explanation + runnable code**.  
 - Demonstrates growth across **frontend, backend, and database layers** of the MERN stack.  
 - MongoDB scripts are **idempotent** and **transaction-safe**, ensuring repeatable outputs and ACID compliance.  
-- Express lessons show **step-by-step backend development**, from simple routes to modular structure and precise REST endpoints with validation.
+- Express lessons show **step-by-step backend development**, from simple routes to modular structure and precise REST endpoints with validation and middleware.
 
 ---
 
