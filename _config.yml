@@ -4,11 +4,11 @@ theme: jekyll-theme-primer
 
 exclude:
   - node_modules
-  - **/node_modules/**
-  - **/tests/**
-  - **/*.test.js
-  - **/dist/**
-  - **/build/**
+  - "*/node_modules/*"
+  - "*/tests/*"
+  - "*.test.js"
+  - dist
+  - build
   - package.json
   - package-lock.json
   - yarn.lock
