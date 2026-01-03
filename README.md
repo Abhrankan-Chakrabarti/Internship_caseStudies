@@ -87,6 +87,14 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Returns `403 Forbidden` when insurance approval is missing  
     - Centralized error handler logs discharge steps for troubleshooting  
     - Runnable via `node app.js`  
+  - **Lesson 7: Admissions validation for art applicants (`app.js`, `routes/applications.js`)**  
+    - Implements `POST /applications` endpoint to submit applications  
+    - Validates basic fields: applicant name and email required  
+    - Adds rule: if `applicantType` is `"art"`, `portfolioLink` must be a valid URL  
+    - Returns `400 Bad Request` with message `"A valid portfolio link is required for art applicants."` if missing or invalid  
+    - Responds with `201 Created` and application payload on success  
+    - Demonstrates extending validation rules with clear, actionable feedback  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -238,6 +246,38 @@ curl -X POST http://localhost:3000/discharge \
   -d '{"patientName":"Jane Doe","doctorSigned":true,"pharmacyChecked":true,"followupScheduled":true}'
 ```
 
+#### Lesson 7: Admissions validation for art applicants
+```bash
+cd Internship_caseStudies/express/lesson7
+npm install
+node app.js
+```
+Then test:
+```bash
+# Valid art applicant with portfolio link
+curl -X POST http://localhost:3000/applications \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Asha","email":"asha@example.com","applicantType":"art","portfolioLink":"https://asha-artfolio.com"}'
+
+# Invalid: art applicant missing portfolioLink
+curl -X POST http://localhost:3000/applications \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Ravi","email":"ravi@example.com","applicantType":"art"}'
+
+# Invalid: art applicant with malformed portfolioLink
+curl -X POST http://localhost:3000/applications \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Mira","email":"mira@example.com","applicantType":"art","portfolioLink":"not-a-url"}'
+
+# Valid: non-art applicant (portfolio not required)
+curl -X POST http://localhost:3000/applications \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Karan","email":"karan@example.com","applicantType":"science"}'
+```
+- ✅ Returns `201 Created` with application payload if valid.  
+- ❌ Returns `400 Bad Request` with `"A valid portfolio link is required for art applicants."` if missing or invalid.  
+- ✅ Non-art applicants pass without portfolioLink.
+
 ---
 
 ## 📈 Progress Tracker
@@ -252,7 +292,8 @@ curl -X POST http://localhost:3000/discharge \
 - [x] **Express Lesson 4**: POST /transfer endpoint with UUID validation and error handling  
 - [x] **Express Lesson 5**: BakingController  
 - [x] **Express Lesson 6**: Discharge workflow with insurance middleware  
-- [ ] **Express Lesson 7+**: Global error handling, authentication, and advanced middleware (upcoming)  
+- [x] **Express Lesson 7**: Admissions validation for art applicants  
+- [ ] **Express Lesson 8+**: Global error handling, authentication, and advanced middleware (upcoming)  
 
 ---
 
