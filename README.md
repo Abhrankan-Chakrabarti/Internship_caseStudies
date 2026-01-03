@@ -95,6 +95,15 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Responds with `201 Created` and application payload on success  
     - Demonstrates extending validation rules with clear, actionable feedback  
     - Runnable via `node app.js`  
+  - **Lesson 8: ReturnBook workflow with MVC (`app.js`, `models/Book.js`, `repositories/`, `services/BookService.js`, `controllers/BookController.js`)**  
+    - Implements MVC pattern with clear separation of concerns  
+    - BookService enforces business rules for borrowing and returning books  
+    - BookController exposes endpoints:  
+      - `POST /books/:id/borrow` → borrow a book  
+      - `POST /books/:id/return` → return a book  
+    - Repository updates book status (`isBorrowed` flag) when returned  
+    - Demonstrates repository pattern and dependency injection for modular, testable code  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -278,6 +287,30 @@ curl -X POST http://localhost:3000/applications \
 - ❌ Returns `400 Bad Request` with `"A valid portfolio link is required for art applicants."` if missing or invalid.  
 - ✅ Non-art applicants pass without portfolioLink.
 
+#### Lesson 8: ReturnBook workflow with MVC
+```bash
+cd Internship_caseStudies/express/lesson8
+npm install
+node app.js
+```
+
+Then test:
+
+```bash
+# Borrow a book
+curl -X POST http://localhost:3000/books/1/borrow
+
+# Return a book
+curl -X POST http://localhost:3000/books/1/return
+
+# Error: return a book that isn’t borrowed
+curl -X POST http://localhost:3000/books/2/return
+```
+
+- ✅ Borrow → JSON with `isBorrowed: true`  
+- ✅ Return → JSON with `isBorrowed: false`  
+- ❌ Error if book not found or invalid state  
+
 ---
 
 ## 📈 Progress Tracker
@@ -293,7 +326,8 @@ curl -X POST http://localhost:3000/applications \
 - [x] **Express Lesson 5**: BakingController  
 - [x] **Express Lesson 6**: Discharge workflow with insurance middleware  
 - [x] **Express Lesson 7**: Admissions validation for art applicants  
-- [ ] **Express Lesson 8+**: Global error handling, authentication, and advanced middleware (upcoming)  
+- [x] **Express Lesson 8**: ReturnBook workflow with MVC pattern  
+- [ ] **Express Lesson 9+**: Global error handling, authentication, and advanced middleware (upcoming)  
 
 ---
 
