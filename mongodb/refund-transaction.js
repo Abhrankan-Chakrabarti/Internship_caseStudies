@@ -1,4 +1,4 @@
-const { MongoClient, ObjectId } = require("mongodb");
+const { MongoClient } = require("mongodb");
 
 async function refundTransaction() {
   const client = new MongoClient("mongodb://127.0.0.1:27017");
@@ -9,17 +9,14 @@ async function refundTransaction() {
 
   try {
     await session.withTransaction(async () => {
-      // Look up the specific transaction you seeded
+      // Find the most recent completed transaction
       const tx = await db.collection("transactions").findOne(
-        {
-          _id: new ObjectId("6957ae3220a858905a759488"),
-          status: "completed"
-        },
-        { session }
+        { status: "completed" },
+        { sort: { date: -1 }, session }
       );
 
       if (!tx) {
-        throw new Error("Transaction not found or already refunded.");
+        throw new Error("No completed transaction found to refund.");
       }
 
       console.log("Found transaction:", tx);
