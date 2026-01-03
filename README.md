@@ -73,6 +73,14 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Responds with `200 OK` and updated balances on success  
     - Demonstrates transaction-like workflow, input validation, and structured error handling  
     - Runnable via `node app.js`  
+  - **Lesson 5: BakingController (`app.js`, `routes/baking.js`)**  
+    - Implements `POST /baking/start` to begin baking an order  
+    - Implements `GET /baking/status/:id` to check baking status by order ID  
+    - Uses in-memory array to track baking orders  
+    - Validates: returns `400 Bad Request` if orderId or flavor missing, `404 Not Found` if order not found  
+    - Responds with `201 Created` on start and `200 OK` on status retrieval  
+    - Demonstrates modular routing, workflow separation, and clear status codes  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -188,6 +196,23 @@ curl -X POST http://localhost:3000/transfer \
   -d '{"fromCustomerId":"22222222-2222-4222-8222-222222222222","toCustomerId":"11111111-1111-4111-8111-111111111111","points":9999}'
 ```
 
+#### Lesson 5: BakingController
+```bash
+cd Internship_caseStudies/express/lesson5
+npm install
+node app.js
+```
+Then test:
+```bash
+# Start baking an order
+curl -X POST http://localhost:3000/baking/start \
+  -H "Content-Type: application/json" \
+  -d '{"orderId":"101","flavor":"chocolate"}'
+
+# Check baking status
+curl -X GET http://localhost:3000/baking/status/101
+```
+
 ---
 
 ## 📈 Progress Tracker
@@ -200,7 +225,8 @@ curl -X POST http://localhost:3000/transfer \
 - [x] **Express Lesson 2**: Modular routes with mounted routers  
 - [x] **Express Lesson 3**: PATCH endpoint with boolean validation  
 - [x] **Express Lesson 4**: POST /transfer endpoint with UUID validation and error handling  
-- [ ] **Express Lesson 5+**: Middleware, global error handling, authentication (upcoming)  
+- [x] **Express Lesson 5**: BakingController
+- [ ] **Express Lesson 6+**: Middleware, global error handling, authentication (upcoming)  
 
 ---
 
