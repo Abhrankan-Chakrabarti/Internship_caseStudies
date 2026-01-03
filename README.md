@@ -111,6 +111,14 @@ Each case study bridges theory and practice with real-world coding exercises.
     - Returns `200 OK` with success message or `404 Not Found` if course does not exist  
     - Demonstrates repository pattern, service layer enforcement, and controller routing for admin actions  
     - Runnable via `node app.js`  
+  - **Lesson 10: BillingService integration (`app.js`, `services/`, `controllers/AppointmentController.js`, `tests/AppointmentService.test.js`)**  
+    - Defines `BillingService` interface and `StripeBillingService` implementation  
+    - AppointmentService injects both NotificationService and BillingService  
+    - `bookAppointment` charges patient and sends notification when booking  
+    - AppointmentController exposes `POST /appointments/book` endpoint  
+    - Unit test uses a mock billing service to verify charges are recorded  
+    - Demonstrates dependency injection, modular service design, and testability in Express  
+    - Runnable via `node app.js`  
 
 ---
 
@@ -338,6 +346,34 @@ curl -X DELETE http://localhost:3000/courses/999
 - ✅ Returns `200 OK` with `"Course deleted successfully"` if found  
 - ❌ Returns `404 Not Found` with `"Course not found"` if missing  
 
+#### Lesson 10: BillingService integration
+```bash
+cd Internship_caseStudies/express/lesson10
+npm install
+node app.js
+```
+
+Then test:
+
+```bash
+# Book appointment with billing + notification
+curl -X POST http://localhost:3000/appointments/book \
+  -H "Content-Type: application/json" \
+  -d '{"patient":"alice@example.com","time":"Monday 10am","amount":50}'
+```
+
+Expected:
+- ✅ Console logs: Stripe charge + SMS notification  
+- ✅ Response JSON:  
+  ```json
+  {
+    "status": "confirmed",
+    "patient": "alice@example.com",
+    "time": "Monday 10am",
+    "amount": 50
+  }
+  ```
+
 ---
 
 ## 📈 Progress Tracker
@@ -355,7 +391,7 @@ curl -X DELETE http://localhost:3000/courses/999
 - [x] **Express Lesson 7**: Admissions validation for art applicants  
 - [x] **Express Lesson 8**: ReturnBook workflow with MVC pattern  
 - [x] **Express Lesson 9**: Course deletion workflow  
-- [ ] **Express Lesson 10+**: Global error handling, authentication, and advanced middleware (upcoming)  
+- [x] **Express Lesson 10**: BillingService integration with AppointmentService  
 
 ---
 
