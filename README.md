@@ -30,6 +30,10 @@ Each case study bridges theory and practice with real-world coding exercises.
   - State management patterns  
   - Code-splitting and optimization  
 
+  - Vite-based React app (`my-task-app`)   <!-- 👈 new entry -->
+    - Standalone mini-app built with React + TypeScript  
+    - Interactive Task Manager (add, toggle, delete tasks with useReducer)  
+
 - **mongodb/**  
   - **Case Study 1: MovieFlix Analytics (`solution.js`)**  
     - Aggregation pipelines using `$match`, `$group`, `$project`, `$sort`, `$limit`  
@@ -139,6 +143,15 @@ npm install
 npm run dev
 ```
 This will start the Vite dev server and open the app in your browser.
+
+### Task Manager (Vite)
+```bash
+cd Internship_caseStudies/react/my-task-app
+npm install
+npm run dev
+```
+This will start the Vite dev server and open the app in your browser.  
+You can then interact with the **Task Manager mini-app**: add tasks, toggle completion, and delete tasks.
 
 ### MongoDB
 
