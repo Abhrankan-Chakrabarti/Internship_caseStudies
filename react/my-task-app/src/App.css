@@ -1,0 +1,52 @@
+.App {
+  font-family: sans-serif;
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.input-row {
+  margin-bottom: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  width: 70%;
+}
+
+button {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+}
+
+li span {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
