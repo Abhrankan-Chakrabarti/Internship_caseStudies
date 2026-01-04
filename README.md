@@ -26,9 +26,9 @@ Each case study bridges theory and practice with real-world coding exercises.
 
 - **react/**  
   - Vite-based React app (`my-react-app`)  
-  - Component-driven solutions with hooks  
-  - State management patterns  
-  - Code-splitting and optimization  
+    - Component-driven solutions with hooks  
+    - State management patterns  
+    - Code-splitting and optimization  
 
   - Vite-based React app (`my-task-app`)   <!-- 👈 new entry -->
     - Standalone mini-app built with React + TypeScript  
