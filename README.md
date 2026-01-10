@@ -127,14 +127,34 @@ Each case study bridges theory and practice with real-world coding exercises.
 ---
 
 ## 🛠️ How to Run
-Clone the repo and run any case study:
 
-### TypeScript
+Clone the repository and run any case study as described below.
+
+### TypeScript (General Case Studies)
+
+Most lessons can be run directly by compiling the TypeScript file and executing the generated JavaScript:
+
 ```bash
 cd Internship_caseStudies/CaseStudy1
 tsc lesson-name.ts
 node lesson-name.js
+````
+
+Replace `lesson-name` with the actual file name of the lesson you want to run.
+
+---
+
+### TypeScript (Lesson 19)
+
+Lesson 19 is structured as a standalone project with its own folder and build output.
+
+```bash
+cd Internship_caseStudies/CaseStudy1/nineteen
+tsc
+node dist/index.js
 ```
+
+This will compile the project using the local `tsconfig.json` and run the bundled output from the `dist` directory.
 
 ### React (Vite)
 ```bash
