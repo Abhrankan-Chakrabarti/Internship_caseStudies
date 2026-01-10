@@ -140,21 +140,20 @@ tsc lesson-name.ts
 node lesson-name.js
 ````
 
-Replace `lesson-name` with the actual file name of the lesson you want to run.
-
 ---
 
 ### TypeScript (Lesson 19)
 
-Lesson 19 is structured as a standalone project with its own folder and build output.
+Lesson 19 is a standalone TypeScript project and uses external dependencies.
 
 ```bash
 cd Internship_caseStudies/CaseStudy1/nineteen
+npm install
 tsc
 node dist/index.js
 ```
 
-This will compile the project using the local `tsconfig.json` and run the bundled output from the `dist` directory.
+This will install required dependencies (`typedi`, `reflect-metadata`), compile the project using the local `tsconfig.json`, and run the output from the `dist` directory.
 
 ### React (Vite)
 ```bash
